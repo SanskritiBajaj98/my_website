@@ -87,7 +87,7 @@
 
 13. Currently all tiles go to markdown (.md) documents. But what if we wanted to use an Rmd? I have saved one in this folder, `risk_return.Rmd`, but please copy it under `content/blogs`. It is a normal Rmd, the only difference is the front matter, the first 13 lines. In there, I have made the following changes
 
--   Line 8: added an image, called `spices.jpeg`. You should save that picture in `\static\img\blogs`. Again, acceptable formats= jpg, jpeg, or png . Your iPhone pics wont work
+-   Line 8: added an image, called `spices.jpg`. You should save that picture in `\static\img\blogs`. Again, acceptable formats= jpg, jpeg, or png . Your iPhone pics wont work
 -   Line 11: changed the `slug` to `risk_return`. The slug is the shorthand URL address. but make sure you have no spaces in the slug. And how do I use the slug? Well, I need to edit line 87 of config.yaml and change it from `url: blogs/aliquam` to `url: blogs/risk_return`
 
 14. Save your config.yaml (again!)
