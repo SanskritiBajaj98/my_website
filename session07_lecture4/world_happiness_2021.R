@@ -73,7 +73,7 @@ huxreg(model1, model2, model3, model4,model5,
                       'R squared' = 'r.squared', 
                       'Adj. R Squared' = 'adj.r.squared', 
                       'Residual SE' = 'sigma'), 
-       bold_signif = 0.05, 
+#       bold_signif = 0.05, 
        stars = NULL
 ) %>% 
   set_caption('Comparison of models')
