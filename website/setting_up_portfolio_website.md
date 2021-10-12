@@ -91,7 +91,7 @@
 -   Line 11: changed the `slug` to `risk_return`. The slug is the shorthand URL address. but make sure you have no spaces in the slug. And how do I use the slug? Well, I need to edit line 87 of config.yaml and change it from `url: blogs/aliquam` to `url: blogs/risk_return`
 
 
-14. If you want to add another picture `pic.jpg` anywhere in the Rmd, make sure you insert a chunk of code as follows:
+14. If you want to add another picture `pic.jpg` anywhere in the Rmd, make sure you save the picture in `\static\img` and insert a chunk of code as follows:
 
 ```
 knitr::include_graphics("/img/pic1.jpg",error =FALSE)
