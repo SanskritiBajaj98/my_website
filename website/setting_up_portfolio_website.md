@@ -90,11 +90,18 @@
 -   Line 8: added an image, called `spices.jpg`. You should save that picture in `\static\img\blogs`. Again, acceptable formats= jpg, jpeg, or png . Your iPhone pics wont work
 -   Line 11: changed the `slug` to `risk_return`. The slug is the shorthand URL address. but make sure you have no spaces in the slug. And how do I use the slug? Well, I need to edit line 87 of config.yaml and change it from `url: blogs/aliquam` to `url: blogs/risk_return`
 
-14. Save your config.yaml (again!)
 
-15: In the console, type `blogdown::serve_site()` Blogdown will knit the Rmd and use hugo to build the entire webpage. Once it's done, you should be able to see it in the local viewer.
+14. If you want to add another picture `pic.jpg` anywhere in the Rmd, make sure you insert a chunk of code as follows:
 
-16. Push everything to github
+```
+knitr::include_graphics("/img/pic1.jpg",error =FALSE)
+```
+
+15. Save your config.yaml (again!)
+
+16: In the console, type `blogdown::serve_site()` Blogdown will knit the Rmd and use hugo to build the entire webpage. Once it's done, you should be able to see it in the local viewer.
+
+17. Push everything to github
 
 <!-- -->
 
