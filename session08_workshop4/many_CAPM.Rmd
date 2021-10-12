@@ -1,5 +1,5 @@
 ---
-title: "Running CAPM for all DJIA components"
+title: "CAPM for DJIA and SPY components"
 author: "CA09 - Data Analytics for Finance"
 date: "`r Sys.Date()`"
 output:
@@ -189,7 +189,7 @@ ggplot(data = slopes, aes(x = symbol, y = estimate))+
   labs(title = 'Estimating betas of stocks in the DJIA',
        subtitle = paste0(zoo::as.yearmon(starting_date), " to ", zoo::as.yearmon(ending_date)),
        x = "",
-       y = "beta estimate over") +
+       y = "beta estimate") +
   geom_hline(yintercept = 1, colour= "#001e62")+
   geom_label(aes(x = symbol, y = estimate, label = round(estimate, 2)),
              hjust = 1, 
@@ -393,14 +393,15 @@ capm_results %>%
 
 # Where are the SP500 companies headquartered
 capm_results %>% 
-   count(headquarters_location, sort=TRUE) 
+   count(headquarters_location, sort=TRUE) %>% 
+  View()
 
 
 # plot betas
 ggplot(data = capm_results, aes(x = beta, fill=sector))+
   geom_density(alpha = 0.3)+
   theme_bw(8)+
-  labs(title = 'Estimating betas of stocks',
+  labs(title = 'Estimating distribution of betas by sector',
        subtitle = paste0(zoo::as.yearmon(starting_date), " to ", zoo::as.yearmon(ending_date)),
        x = "") +
   facet_wrap(~sector)+
