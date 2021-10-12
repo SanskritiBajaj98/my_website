@@ -227,7 +227,7 @@ As you keep building your models, it makes sense to:
 # Deliverables
 
 
-- By midnight on Monday 17 Oct 2022, you must upload on Canvas a short presentation (max 4-5 slides) with your findings, as some groups will be asked to present in class. You should present your Exploratory Data Analysis, as well as your best model. In addition, you must upload on Canvas your final report, written  using R Markdown to introduce, frame, and describe your story and findings. You should include the following in the memo:
+- By midnight on Monday 18 Oct 2021, you must upload on Canvas a short presentation (max 4-5 slides) with your findings, as some groups will be asked to present in class. You should present your Exploratory Data Analysis, as well as your best model. In addition, you must upload on Canvas your final report, written  using R Markdown to introduce, frame, and describe your story and findings. You should include the following in the memo:
 
 1. Executive Summary: Based on your best model, indicate the factors that influence `price_4_nights`.
 This should be written for an intelligent but non-technical audience. All
