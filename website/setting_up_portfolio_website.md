@@ -97,11 +97,17 @@
 knitr::include_graphics("/img/pic1.jpg",error =FALSE)
 ```
 
-15. Save your config.yaml (again!)
+15. If you want to add a datafile that you use in one of your Rmds, say brexit_results.csv, create a folder `\data\` in the root folder of your website (where you also have the *.Rproj file). Save the brexit_results.csv file in that folder and to read it, use 
 
-16: In the console, type `blogdown::serve_site()` Blogdown will knit the Rmd and use hugo to build the entire webpage. Once it's done, you should be able to see it in the local viewer.
+```
+brexit_results <- read_csv(here::here("data","brexit_results.csv"))
+```
 
-17. Push everything to github
+16. Save your config.yaml (again!)
+
+17: In the console, type `blogdown::serve_site()` Blogdown will knit the Rmd and use hugo to build the entire webpage. Once it's done, you should be able to see it in the local viewer. Usually, if you add/make changes to Rmds, `blogdown::serve_site()` will automatically knit them to HTML and render the site; if not, restart R (Ctrl/Cmd + Shift + F10) and type in the console `blogdown::serve_site()`.
+
+18. Push everything to github. You must push your changes by going through all of the steps below and Netlify will update your webpage
 
 <!-- -->
 
