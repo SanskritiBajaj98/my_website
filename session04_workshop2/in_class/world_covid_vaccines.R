@@ -24,14 +24,14 @@ df <- map %>%
   rename(iso_code=iso_a3) %>% 
   left_join(
     covid_data %>% 
-      select(location, iso_code, people_fully_vaccinated, perc, continent) %>% 
+      select(location, iso_code, date, people_fully_vaccinated, perc, continent) %>% 
       group_by(location) %>% 
       slice_max(order_by = perc, n=1) %>% 
-      drop_na() %>% 
       ungroup(),
-  by =  "iso_code") 
-         
- 
+  by =  "iso_code") %>% 
+  drop_na(date) 
+
+
 base_map <- ggplot(data = df) +
   geom_sf(
     mapping = aes(
@@ -46,7 +46,7 @@ base_map <- ggplot(data = df) +
     na.value = "grey60",
   )+
   labs(
-    title = "% Vaccinated against Covid",
+    title = glue::glue("% Vaccinated against Covid- \nData as of {df$date}"),
     caption = "Source: https://github.com/owid/covid-19-data/tree/master/public/data"
   )+
   theme_void()+

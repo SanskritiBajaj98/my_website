@@ -65,13 +65,13 @@ in each year. We'll visualize the results, so let's pick a few countries of
 interest first,
 
 ```{r country-list}
-country_list <- c("United States of America", "China", 
-                  "United Kingdom of Great Britain and Northern Ireland", "India")
+country_list <- c("United States", "China", 
+                  "United Kingdom", "India")
 ```
 
 and focus our analysis on them.
 
-```{r plot-yearly-yes, fig.width=10, warning=FALSE}
+```{r plot-yearly-yes, fig.width=10, warning=FALSE, message=FALSE}
 un_votes %>%
   filter(country %in% country_list) %>%
   inner_join(un_roll_calls, by = "rcid") %>%
@@ -84,22 +84,24 @@ un_votes %>%
     geom_line() +
     labs(
       title = "Percentage of 'Yes' votes in the UN General Assembly",
-      subtitle = "1946 to 2015",
+      subtitle = "1946 to 2019",
       y = "% Yes",
       x = "Year",
-      color = "Country"
+      colour = "Country"
     )+
-  theme_bw()
+  scale_y_continuous(labels = scales::percent_format(accuracy=.01))+
+  theme_bw()+
+  NULL
 ```
 
 Next, let's create a visualization that displays 
 how the voting record of the United States changed over time on a variety of 
 issues, and compares it to another country. The other country we'll display is 
-India.
+Italy.
 
-```{r plot-yearly-yes-issue, fig.width=10, warning=FALSE}
+```{r plot-yearly-yes-issue, fig.width=10, warning=FALSE, message=FALSE}
 un_votes %>%
-  filter(country %in% c("United States of America", "India")) %>%
+  filter(country %in% c("United States", "Italy")) %>%
   inner_join(un_roll_calls, by = "rcid") %>%
   inner_join(un_roll_call_issues, by = "rcid") %>%
   group_by(country, year = year(date), issue) %>%
@@ -108,18 +110,20 @@ un_votes %>%
     percent_yes = mean(vote == "yes")
     ) %>%
   filter(votes > 5) %>%  # only use records where there are more than 5 votes
-  ggplot(mapping = aes(x = year, y = percent_yes, color = country)) +
+  ggplot(mapping = aes(x = year, y = percent_yes, colour = country)) +
     geom_point() +
     geom_smooth(method = "loess", se = FALSE) +
     facet_wrap(~ issue) +
     labs(
       title = "Percentage of 'Yes' votes in the UN General Assembly",
-      subtitle = "1946 to 2015",
+      subtitle = "1946 to 2019",
       y = "% Yes",
       x = "Year",
-      color = "Country"
+      colour = "Country"
     )+
-  theme_bw()
+  scale_y_continuous(labels = scales::percent_format(accuracy=.01))+
+  theme_bw()+
+  NULL
 ```
 
 We can easily change which countries are being plotted by changing which 
