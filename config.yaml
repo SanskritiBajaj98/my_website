@@ -1,7 +1,7 @@
 baseURL: http://example.org/
 languageCode: en-us
 title: Welcome to Sanskriti Bajaj's Data Analytics Portfolio
-theme: terminal
+theme: Forty
 googleAnalytics: ''
 disqusShortname: ''
 params:
